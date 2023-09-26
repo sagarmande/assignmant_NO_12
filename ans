@@ -1,0 +1,46 @@
+1. The `PdfFileReader()` and `PdfFileWriter()` File objects should be opened in binary read ('rb') mode for reading and binary write ('wb') mode for writing, respectively.
+
+2. To get a Page object for page 5 from a `PdfFileReader` object, you can use the `getPage()` method like this:
+```python
+page = pdf_reader.getPage(4)  # Page numbering is 0-based, so page 5 is accessed using index 4.
+```
+
+3. The `numPages` variable of a `PdfFileReader` object stores the number of pages in the PDF document. You can access it using `pdf_reader.numPages`.
+
+4. If a `PdfFileReader` object's PDF is encrypted with the password "swordfish," you must set the decryption password using the `decrypt()` method before you can obtain Page objects. Here's an example:
+```python
+pdf_reader.decrypt('swordfish')
+```
+
+5. To rotate a page in PyPDF2, you can use the `rotateClockwise()` or `rotateCounterClockwise()` methods of a Page object. For example, to rotate a page clockwise by 90 degrees:
+```python
+page.rotateClockwise(90)
+```
+
+6. In the context of Python's `python-docx` library, a Run object represents a contiguous run of text with the same formatting in a paragraph. A Paragraph object represents a single paragraph of text within a document.
+
+7. To obtain a list of Paragraph objects for a Document object stored in a variable named `doc`, you can use the `paragraphs` attribute:
+```python
+paragraphs = doc.paragraphs
+```
+
+8. A Run object has attributes like `bold`, `underline`, `italic`, `strike`, and `outline` that represent various text formatting properties.
+
+9. In the context of a Run object in `python-docx`:
+   - `False` for the `bold` variable means the text is not bold.
+   - `True` for the `bold` variable means the text is bold.
+   - `None` for the `bold` variable means the text inherits its boldness from the style hierarchy.
+
+10. To create a Document object for a new Word document using `python-docx`, you can do the following:
+```python
+from docx import Document
+
+doc = Document()
+```
+
+11. To add a paragraph with the text "Hello, there!" to a Document object stored in a variable named `doc`, you can use the `add_paragraph()` method:
+```python
+doc.add_paragraph('Hello, there!')
+```
+
+12. Headings in Word documents are typically represented by integer levels, where 1 represents the highest level (e.g., Heading 1), 2 represents the next level (Heading 2), and so on. The exact styling and formatting of these headings may vary depending on the document's template and settings, but the levels are typically numbered in this hierarchical manner.
